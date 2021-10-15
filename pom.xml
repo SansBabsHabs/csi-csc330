@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>edu.cuny.csi</groupId>
+    <artifactId>csc330-parkinglot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>csc330-parkinglot</name>
+    <description>A simple csc330-parkinglot.</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
+    </properties>
+    <developers>
+        <developer>
+            <name>PRAISE ADEJUNMOBI</name>
+        </developer>
+        <developer>
+            <name>BABAJIDE SANUSI</name>
+        </developer>
+        <developer>
+            <name>Jessica Lauria</name>
+        </developer>
+        <developer>
+            <name>JIA LU</name>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
