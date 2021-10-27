@@ -107,13 +107,7 @@ public class ParkingLot {
 
 	public static void main(String[] args) {
 
-		TimeProvider timeProvider = new TimeProvider();
-
-		Office office = new Office();
-		office.setTimeProvider(timeProvider);
-
 		ParkingLot num = new ParkingLot();
-		//call parkingLot.setOffice(office);
 	
 		System.out.println(num.getString(6));
 	
