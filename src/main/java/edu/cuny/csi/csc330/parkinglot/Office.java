@@ -15,6 +15,10 @@ public class Office {
         this.taxRate = taxRate;
     }
 
+    public Receipt createReceipt(String carId) {
+        return new Receipt(carId, timeProvider.now());
+    }
+
     public void setTimeProvider(TimeProvider timeProvider) {
         this.timeProvider = timeProvider;
     }

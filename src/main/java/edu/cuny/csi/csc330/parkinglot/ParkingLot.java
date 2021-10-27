@@ -1,5 +1,7 @@
 package edu.cuny.csi.csc330.parkinglot;
 
+import edu.cuny.csi.csc330.parkinglot.util.TimeProvider;
+
 import java.util.Arrays;
 import java.util.*;
 
@@ -104,8 +106,14 @@ public class ParkingLot {
 	/////////////////////////
 
 	public static void main(String[] args) {
-	
+
+		TimeProvider timeProvider = new TimeProvider();
+
+		Office office = new Office();
+		office.setTimeProvider(timeProvider);
+
 		ParkingLot num = new ParkingLot();
+		//call parkingLot.setOffice(office);
 	
 		System.out.println(num.getString(6));
 	
