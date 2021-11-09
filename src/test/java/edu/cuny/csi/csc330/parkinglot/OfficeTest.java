@@ -1,5 +1,8 @@
 package edu.cuny.csi.csc330.parkinglot;
 
+import edu.cuny.csi.csc330.parkinglot.office.Invoice;
+import edu.cuny.csi.csc330.parkinglot.office.Office;
+import edu.cuny.csi.csc330.parkinglot.office.Receipt;
 import edu.cuny.csi.csc330.parkinglot.util.TimeProvider;
 import org.junit.jupiter.api.Test;
 

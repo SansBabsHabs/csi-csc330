@@ -1,4 +1,4 @@
-package edu.cuny.csi.csc330.parkinglot;
+package edu.cuny.csi.csc330.parkinglot.office;
 
 import edu.cuny.csi.csc330.parkinglot.util.TimeProvider;
 
