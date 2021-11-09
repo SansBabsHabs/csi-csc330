@@ -23,10 +23,15 @@ public class ElectricCarImpl extends BaseCar implements Vehicle, ElectricCar {
         return (currentBattery / maxBattey) * 100;
     }
 
-    void charge(double electricity) {
+    @Override
+    public void charge(double electricity) {
+        System.out.println(
+                "before charge " + this.getPlateNumber() + " " + this.getBatteryPercent());
         this.currentBattery += electricity;
         if (currentBattery > maxBattey) {
             this.currentBattery = maxBattey;
         }
+        System.out.println(
+                "after charge " + this.getPlateNumber() + " " + this.getBatteryPercent());
     }
 }

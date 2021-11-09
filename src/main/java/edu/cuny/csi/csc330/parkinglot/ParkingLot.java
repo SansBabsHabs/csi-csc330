@@ -15,12 +15,13 @@ import java.util.concurrent.SubmissionPublisher;
 
 public class ParkingLot {
     private final Map<String, ParkingSpot> carMap;
-    private final Queue<ParkingSpot> parkingSpots;
+    private final Queue<ParkingSpot> emptyParkingSpots;
     private SubmissionPublisher<ParkingLotEvent> parkingEventEmitter;
     private Office office;
+
     public ParkingLot() {
         carMap = new HashMap<>();
-        parkingSpots = new LinkedList<>();
+        emptyParkingSpots = new LinkedList<>();
     }
 
     // function to generate a random string of length n
@@ -45,19 +46,19 @@ public class ParkingLot {
 
     @Override
     public String toString() {
-        return "ParkingLot{" + "parkingSpots=" + parkingSpots.size() + '}';
+        return "ParkingLot{" + "parkingSpots=" + emptyParkingSpots.size() + '}';
     }
 
     public void addParkingSpot(ParkingSpot parkingSpot) {
-        this.parkingSpots.add(parkingSpot);
+        this.emptyParkingSpots.add(parkingSpot);
     }
 
     public Receipt parkCar(Vehicle vehicle) {
 
-        if (this.parkingSpots.isEmpty()) {
+        if (this.emptyParkingSpots.isEmpty()) {
             throw new IllegalArgumentException("parking lot full");
         }
-        ParkingSpot poll = this.parkingSpots.poll();
+        ParkingSpot poll = this.emptyParkingSpots.poll();
 
         Receipt receipt = office.createReceipt(vehicle.getPlateNumber());
         carMap.put(vehicle.getPlateNumber(), poll.parkVehicle(vehicle));
@@ -68,9 +69,8 @@ public class ParkingLot {
 
     public Vehicle getCar(Invoice invoice) {
         ParkingSpot spot = carMap.remove(invoice.getCarId());
-
         Vehicle vehicle = spot.removeVehicle();
-        parkingSpots.add(spot);
+        emptyParkingSpots.add(spot);
         this.parkingEventEmitter.submit(ParkingSpotEvent.OUT);
         return vehicle;
     }
