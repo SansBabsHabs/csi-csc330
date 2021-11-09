@@ -37,6 +37,10 @@ public class ParkingLogApplication {
         parkingLot.setParkingEventEmitter(parkingEventEmitter);
         parkingLot.setOffice(office);
 
+        IntStream.range(0, 20).forEach((x) -> parkingLot.addParkingSpot(new ParkingSpot()));
+
+        System.out.println(parkingLot);
+
         List<Receipt> collect =
                 IntStream.range(0, 10)
                         .mapToObj(i -> parkingLot.parkCar(new RegularCar(String.valueOf(i))))
@@ -47,9 +51,7 @@ public class ParkingLogApplication {
             parkingLot.getCar(office.pay(receipt));
         }
 
-        System.out.println("done");
-        // call parkingLot.setOffice(office);
-
+        System.out.println("SI Corner Parking Lot is open for business");
     }
 
     private static void shutdownHook(Runnable shutdownCmd) {
